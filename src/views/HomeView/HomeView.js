@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderText from 'components/atoms/Header.js';
-import Button from 'components/atoms/Button.js';
+import HeaderText from 'components/atoms/Title';
+import Button from 'components/atoms/Button';
 import { StyledWrapper } from './HomeView.css';
 
 const HomeView = () => {

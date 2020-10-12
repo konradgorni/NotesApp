@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import HeaderText from 'components/atoms/Header';
+import HeaderText from 'components/atoms/Title';
 import { StyledField, ErrorMessage, StyledForm } from 'components/atoms/FormikComponents';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
 import { StyledWrapper } from './RegisterView.css';

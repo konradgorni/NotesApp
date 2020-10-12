@@ -8,7 +8,7 @@ import { firebaseTasks, setName } from 'data/slices/testSlice';
 import { fireStoreFetch } from 'helpfulFunctions/fetchFirebaseData';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
 import { StyledWrapper } from './LoginView.css';
-import HeaderText from 'components/atoms/Header.js';
+import HeaderText from 'components/atoms/Title.js';
 import { StyledField, ErrorMessage, StyledForm } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
 

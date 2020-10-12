@@ -11,22 +11,18 @@ const HeaderText = styled.h1`
     font-size: 5rem;
   }
   @media ${device.tablet} {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   @media ${device.laptopL} {
-    font-size: 8rem;
+    font-size: 7rem;
   }
+
+  ${({ paddingless }) =>
+    paddingless &&
+    css`
+      padding: 0;
+      height: 100%;
+    `}
 `;
 
 export default HeaderText;
-
-/* background-color: ${({ theme }) => theme.primary}; */
-
-//   ${({ secondary }) =>
-//     secondary &&
-//     css`
-//       background-color: ${({ color }) => color || '#e6e6e6;'};
-//       width: 105px;
-//       height: 30px;
-//       font-size: 10px;
-//     `}
