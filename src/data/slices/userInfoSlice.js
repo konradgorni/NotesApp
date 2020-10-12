@@ -18,7 +18,7 @@ export const userInfo = createSlice({
 
 export const { setAuth, setID } = userInfo.actions;
 
-export const userID = (state) => state.user.userID;
+export const user = (state) => state.userInfo.userID;
 export const isAuth = (state) => state.user.isAuth;
 
 export default userInfo.reducer;
