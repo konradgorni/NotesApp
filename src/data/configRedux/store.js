@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import slice from 'data/slices/testSlice';
 import userInfo from 'data/slices/userInfoSlice';
+import notesSlice from 'data/slices/notesSlice';
 
 export default configureStore({
   reducer: {
     userInfo,
+    notesSlice,
   },
 });

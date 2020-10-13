@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { auth } from 'data/firebase/firebase';
-import { firebaseTasks, setName } from 'data/slices/testSlice';
 import { fireStoreFetch } from 'helpfulFunctions/fetchFirebaseData';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
-import { StyledWrapper } from './LoginView.css';
-import HeaderText from 'components/atoms/Title.js';
+import { fetchNotesFirebase } from 'data/slices/notesSlice';
+import HeaderText from 'components/atoms/Title';
 import { StyledField, ErrorMessage, StyledForm } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
+import { StyledWrapper } from './LoginView.css';
 
 const LoginView = () => {
   const dispatch = useDispatch();
@@ -27,10 +27,13 @@ const LoginView = () => {
       .then((u) => {
         dispatch(setAuth(true));
         dispatch(setID(u.user.uid));
-        return history.push('/authpagehome/boardview');
+        fireStoreFetch(u.user.uid).then((response) => {
+          dispatch(fetchNotesFirebase(response));
+          return history.push('/authpagehome/boardview');
+        });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
 

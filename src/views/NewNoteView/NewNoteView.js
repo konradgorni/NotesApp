@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyledWrapper } from './NewNoteView.css';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
 import firebase from 'firebase';
 import { Formik } from 'formik';
@@ -19,6 +18,7 @@ import { user } from 'data/slices/userInfoSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from 'components/atoms/Notify';
+import { StyledWrapper } from './NewNoteView.css';
 
 const NewNoteView = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -27,8 +27,8 @@ const NewNoteView = () => {
     title: Yup.string().required('Required').min(3, 'Too Short!'),
     content: Yup.string().min(5, 'Too Short!').required('Required'),
   });
-  // const userID = useSelector(user);
-  const userID = 'ptj0FXu5raS7FekOiAwL0uNRR5s1';
+  const userID = useSelector(user);
+
   const addNewNote = (title, content) => {
     const docRef = db.collection('users').doc(userID);
     const note = { title, content, date: startDate };
@@ -51,7 +51,7 @@ const NewNoteView = () => {
         notify('add');
       })
 
-      .catch(function (error) {
+      .catch((error) => {
         console.log('Error getting document:', error);
       });
   };

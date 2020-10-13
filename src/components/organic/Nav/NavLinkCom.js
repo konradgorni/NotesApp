@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { StyledIcon } from './Nav.css';
 
 const NavLinkCom = ({ to, icon }) => {
@@ -16,7 +15,7 @@ const NavLinkCom = ({ to, icon }) => {
       }}
       to={to}
     >
-      {active ? <StyledIcon active icon={icon} /> : <StyledIcon icon={icon} />}
+      {active ? <StyledIcon active={active} icon={icon} /> : <StyledIcon icon={icon} />}
     </NavLink>
   );
 };
