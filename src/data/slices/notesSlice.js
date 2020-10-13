@@ -7,7 +7,7 @@ export const notesSlice = createSlice({
   },
   reducers: {
     fetchNotesFirebase: (state, action) => {
-      state.notes = action.payload;
+      state.notes = state.notes.concat(action.payload);
     },
   },
 });

@@ -59,7 +59,7 @@ export const StyledForm = styled(Form)`
   align-items: center;
 `;
 
-//notes component
+/* notes styled components */
 
 export const StyledFieldContent = styled(Field)`
   background-color: ${({ theme }) => theme.purple};

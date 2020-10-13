@@ -4,7 +4,6 @@ import NotesView from 'views/NotesView/NotesView';
 import NewNoteView from 'views/NewNoteView/NewNoteView';
 import BoardView from 'views/BoardView/BoardView';
 import styled from 'styled-components';
-import Nav from 'components/organic/Nav/Nav.js';
 
 const StyledWrapper = styled.div`
   height: 90vh;
@@ -21,7 +20,6 @@ const AuthPage = () => {
           <Route path="/authpagehome/newnoteview" component={NewNoteView} />
         </Switch>
       </StyledWrapper>
-      <Nav />
     </>
   );
 };

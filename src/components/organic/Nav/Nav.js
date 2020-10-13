@@ -5,7 +5,7 @@ import { setAuth, setID } from 'data/slices/userInfoSlice';
 import { useDispatch } from 'react-redux';
 import { faHome, faStickyNote, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import NavLinkCom from './NavLinkCom';
-import { StyledWrapper, StyledIcon } from './Nav.css';
+import { StyledWrapper, StyledIconSignOut } from './Nav.css';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Nav = () => {
       <NavLinkCom to="/authpagehome/notesview" icon={faStickyNote} />
       <NavLinkCom to="/authpagehome/newnoteview" icon={faPlus} />
       <Link to="/" onClick={singout}>
-        <StyledIcon icon={faSignOutAlt} />
+        <StyledIconSignOut icon={faSignOutAlt} />
       </Link>
     </StyledWrapper>
   );

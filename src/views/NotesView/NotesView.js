@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import { showName, selectTasks } from 'data/testSlice';
 import Nav from 'components/organic/Nav/Nav.js';
 
@@ -7,6 +7,7 @@ const NotesView = () => {
   return (
     <>
       <p>test</p>
+      <Nav />
     </>
   );
 };

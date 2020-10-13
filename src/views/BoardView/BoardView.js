@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledWrapper, StyledContainer, StyledNote } from './BoardView.css';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
+import Nav from 'components/organic/Nav/Nav.js';
 
 const BoardView = () => {
   return (
@@ -18,6 +19,7 @@ const BoardView = () => {
           <h2>Important things</h2>
         </div>
       </StyledContainer>
+      <Nav />
     </StyledWrapper>
   );
 };

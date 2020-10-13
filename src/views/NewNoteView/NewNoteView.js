@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
 import firebase from 'firebase';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { db } from 'data/firebase/firebase';
 import {
@@ -13,15 +13,18 @@ import {
 } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { user } from 'data/slices/userInfoSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from 'components/atoms/Notify';
+import { fetchNotesFirebase } from 'data/slices/notesSlice';
+import Nav from 'components/organic/Nav/Nav';
 import { StyledWrapper } from './NewNoteView.css';
 
 const NewNoteView = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
 
   const SignupSchema = Yup.object().shape({
     title: Yup.string().required('Required').min(3, 'Too Short!'),
@@ -29,9 +32,9 @@ const NewNoteView = () => {
   });
   const userID = useSelector(user);
 
-  const addNewNote = (title, content) => {
+  const addNewNote = (title, content, important) => {
     const docRef = db.collection('users').doc(userID);
-    const note = { title, content, date: startDate };
+    const note = { title, content, date: startDate.toLocaleDateString(), important };
     docRef
       .get()
       .then((doc) => {
@@ -54,6 +57,7 @@ const NewNoteView = () => {
       .catch((error) => {
         console.log('Error getting document:', error);
       });
+    dispatch(fetchNotesFirebase(note));
   };
 
   return (
@@ -64,10 +68,11 @@ const NewNoteView = () => {
           initialValues={{
             title: '',
             content: '',
+            important: false,
           }}
           validationSchema={SignupSchema}
-          onSubmit={({ title, content }, { setSubmitting, resetForm }) => {
-            addNewNote(title, content);
+          onSubmit={({ title, content, important }, { setSubmitting, resetForm }) => {
+            addNewNote(title, content, important);
             resetForm();
             setSubmitting(false);
           }}
@@ -90,11 +95,17 @@ const NewNoteView = () => {
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
+
+              <label htmlFor="important">
+                <Field id="important" type="checkbox" name="important" />
+                Important Note
+              </label>
               <Button type="Submit" btn name="Add" />
               <ToastContainer />
             </StyledForm>
           )}
         </Formik>
+        <Nav />
       </StyledWrapper>
     </>
   );
