@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { auth } from 'data/firebase/firebase';
 import { fireStoreFetch } from 'helpfulFunctions/fetchFirebaseData';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
-import { fetchNotesFirebase } from 'data/slices/notesSlice';
+import { fetchNotesFirebase, setArrayLength } from 'data/slices/notesSlice';
 import HeaderText from 'components/atoms/Title';
 import { StyledField, ErrorMessage, StyledForm } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
@@ -28,7 +28,11 @@ const LoginView = () => {
         dispatch(setAuth(true));
         dispatch(setID(u.user.uid));
         fireStoreFetch(u.user.uid).then((response) => {
-          dispatch(fetchNotesFirebase(response));
+          if (response) {
+            dispatch(fetchNotesFirebase(response));
+            dispatch(setArrayLength(response.length));
+          }
+
           return history.push('/authpagehome/boardview');
         });
       })

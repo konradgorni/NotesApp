@@ -2,13 +2,15 @@ import React from 'react';
 // import { useSelector } from 'react-redux';
 // import { showName, selectTasks } from 'data/testSlice';
 import Nav from 'components/organic/Nav/Nav.js';
+import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
+import { StyledWrapper } from './NotesView.css';
 
 const NotesView = () => {
   return (
-    <>
-      <p>test</p>
+    <StyledWrapper>
+      <HeaderWrapper>Your Notes</HeaderWrapper>
       <Nav />
-    </>
+    </StyledWrapper>
   );
 };
 

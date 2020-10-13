@@ -6,6 +6,7 @@ export const fireStoreFetch = async (idUser) => {
     .get()
     .then((doc) => {
       if (doc.exists) {
+        console.log(doc.data());
         return doc.data().notes;
       }
     })
