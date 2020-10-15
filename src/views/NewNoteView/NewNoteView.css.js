@@ -9,3 +9,4 @@ export const StyledWrapper = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from 'data/firebase/firebase';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
+import { resetNotesArray } from 'data/slices/notesSlice';
 import { useDispatch } from 'react-redux';
 import { faHome, faStickyNote, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import NavLinkCom from './NavLinkCom';
@@ -13,6 +14,8 @@ const Nav = () => {
   const singout = () => {
     dispatch(setAuth(false));
     dispatch(setID(''));
+    dispatch(resetNotesArray());
+
     auth.signOut();
   };
   return (

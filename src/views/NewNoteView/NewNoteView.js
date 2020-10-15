@@ -34,13 +34,17 @@ const NewNoteView = () => {
   const userID = useSelector(user);
 
   const addNewNote = (title, content, important) => {
+    const generatorID = () => {
+      return Math.random().toString(36).substr(2, 9);
+    };
+
     const docRef = db.collection('users').doc(userID);
     const note = {
       title,
       content,
       date: startDate.toLocaleDateString(),
       important,
-      index: ArrayLengthTasks,
+      id: generatorID(),
     };
     docRef
       .get()
@@ -65,7 +69,7 @@ const NewNoteView = () => {
         console.log('Error getting document:', error);
       });
     dispatch(fetchNotesFirebase(note));
-    dispatch(incrementArrayLength());
+    dispatch(incrementArrayLength(1));
   };
 
   return (

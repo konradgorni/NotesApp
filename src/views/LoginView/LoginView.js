@@ -30,7 +30,6 @@ const LoginView = () => {
         fireStoreFetch(u.user.uid).then((response) => {
           if (response) {
             dispatch(fetchNotesFirebase(response));
-            dispatch(setArrayLength(response.length));
           }
 
           return history.push('/authpagehome/boardview');
@@ -64,7 +63,6 @@ const LoginView = () => {
             ) : null}
 
             <Button type="Submit" btn name="Login" />
-            {/* <button type="Submit">aa</button> */}
           </StyledForm>
         )}
       </Formik>
