@@ -46,9 +46,11 @@ const StyledButton = styled.button`
   ${commonStyle}
 `;
 
-const Button = ({ btn, name, path }) => {
+const Button = ({ btn, name, path, ...rest }) => {
   return btn ? (
-    <StyledButton type="Submit">{name}</StyledButton>
+    <StyledButton type="Submit" {...rest}>
+      {name}
+    </StyledButton>
   ) : (
     <StyledLink to={path}>{name}</StyledLink>
   );
