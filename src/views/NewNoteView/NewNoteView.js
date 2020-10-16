@@ -108,9 +108,10 @@ const NewNoteView = () => {
                 onChange={(date) => setStartDate(date)}
               />
 
-              <label htmlFor="important">
+              <label class="test" htmlFor="important">
                 <Field id="important" type="checkbox" name="important" />
-                Important Note
+                                <p class="checkbox">Important Note</p>
+
               </label>
               <Button type="Submit" btn name="Add" />
               <ToastContainer />

@@ -16,8 +16,14 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledNote = styled.div`
-  width: 80%;
-  height: 10vh;
+  height: 15vh;
   text-align: center;
-  border: 1px solid white;
+  font-size:4rem;
+  color:white;
+  transition:1s;
+  :hover{
+    cursor:pointer;
+    color:gold;
+  }  
+
 `;

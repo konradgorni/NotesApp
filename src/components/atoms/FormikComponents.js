@@ -36,8 +36,8 @@ export const StyledField = styled(Field)`
   }
 
   @media ${device.tablet} {
-    width: 260px;
-    height: 58px;
+     width: 300px;
+    height: 70px;
     font-size: 3rem;
   }
 `;
@@ -80,23 +80,33 @@ export const StyledFieldContent = styled(Field)`
     border: 2px solid;
   }
   ::placeholder {
-    font-size: 18px;
+      font-size: 2.5rem;
     color: ${({ theme }) => theme.gray};
   }
 
   @media ${device.mobileX} {
-    width: 250px;
-    height: 55px;
+    width: 300px;
+    height: 70px;
     font-size: 2.8rem;
     ::placeholder {
-      font-size: 1.9rem;
+      font-size: 2.5rem;
       color: ${({ theme }) => theme.gray};
     }
   }
 
   @media ${device.tablet} {
-    width: 260px;
-    height: 58px;
+      width: 300px;
+    height: 120px;
+    font-size: 3rem;
+  }
+    @media ${device.laptop} {
+    width: 500px;
+    height: 170px;
+    font-size: 3rem;
+  }
+      @media ${device.laptopL} {
+    width: 650px;
+    height: 250px;
     font-size: 3rem;
   }
 `;
@@ -124,18 +134,28 @@ export const StyledFieldNote = styled(Field)`
   }
 
   @media ${device.mobileX} {
-    width: 250px;
-    height: 55px;
+    width: 300px;
+    height: 70px;
     font-size: 2.8rem;
     ::placeholder {
-      font-size: 1.9rem;
+      font-size: 2.5rem;
       color: ${({ theme }) => theme.gray};
     }
   }
 
   @media ${device.tablet} {
-    width: 260px;
-    height: 58px;
+    width: 300px;
+    height: 70px;
+    font-size: 3rem;
+  }
+  @media ${device.laptop} {
+    width: 500px;
+    height: 70px;
+    font-size: 3rem;
+  }
+        @media ${device.laptopL} {
+    width: 650px;
+    height: 70px;
     font-size: 3rem;
   }
 `;
@@ -152,4 +172,8 @@ export const StyledPicker = styled(DatePicker)`
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 2.5rem;
+  @media ${device.mobileX}{
+        width: 300px;
+    height: 70px;
+  }
 `;

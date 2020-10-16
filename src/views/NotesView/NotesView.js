@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import { showName, selectTasks } from 'data/testSlice';
 import Nav from 'components/organic/Nav/Nav';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
 import { StyledWrapper, StyledContainer, StyledNote } from './NotesView.css';

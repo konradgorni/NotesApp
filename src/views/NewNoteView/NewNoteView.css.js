@@ -8,5 +8,19 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  p.checkbox{
+    color:white;
+    font-size:2rem;
+  }
+  .test{
+    display:flex;
+    width:90%;
+    justify-content:center;
+    text-align:center;
+p{
+  padding-left:5%;
+}
+  }
 `;
 
