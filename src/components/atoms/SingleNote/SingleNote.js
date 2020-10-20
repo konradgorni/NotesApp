@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { StyledWrapper, ButtonsWrapper } from './SingleNote.css';
-import { useParams } from 'react-router-dom';
-import { notesList } from 'data/slices/notesSlice';
+import { useSelector,useDispatch } from 'react-redux';
+import { useParams,useHistory } from 'react-router-dom';
 import Button from 'components/atoms/Button';
-import { newArrayWithoutDeletedElement } from 'data/slices/notesSlice';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { newArrayWithoutDeletedElement,notesList } from 'data/slices/notesSlice';
 import firebase from 'firebase';
 import { db } from 'data/firebase/firebase';
 import { user } from 'data/slices/userInfoSlice';
+import { StyledWrapper, ButtonsWrapper } from './SingleNote.css';
 
 const SingleNote = () => {
   const [note, setNote] = useState({});
@@ -20,12 +17,12 @@ const SingleNote = () => {
   const userID = useSelector(user);
 
   useEffect(() => {
-    const currentNote = notes.filter((note) => note.id === id);
+    const currentNote = notes.filter((not) => not.id === id);
     setNote(currentNote[0]);
   }, []);
 
   const deleteNote = () => {
-    const newNotesList = notes.filter((note) => note.id !== id);
+    const newNotesList = notes.filter((not) => not.id !== id);
     dispatch(newArrayWithoutDeletedElement(newNotesList));
 
     const docRef = db.collection('users').doc(userID);

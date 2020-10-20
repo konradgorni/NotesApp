@@ -2,9 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Nav from 'components/organic/Nav/Nav';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
-import { StyledWrapper, StyledContainer, StyledNote } from './NotesView.css';
-import { notesList } from 'data/slices/notesSlice';
 import { useHistory } from 'react-router-dom';
+import { notesList } from 'data/slices/notesSlice';
+import { StyledWrapper, StyledContainer, StyledNote } from './NotesView.css';
+
+
 
 const NotesView = () => {
   const notes = useSelector(notesList);

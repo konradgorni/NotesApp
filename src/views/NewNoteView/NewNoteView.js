@@ -18,14 +18,14 @@ import { user } from 'data/slices/userInfoSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from 'components/atoms/Notify';
-import { fetchNotesFirebase, arrayLength, incrementArrayLength } from 'data/slices/notesSlice';
+import { fetchNotesFirebase } from 'data/slices/notesSlice';
 import Nav from 'components/organic/Nav/Nav';
 import { StyledWrapper } from './NewNoteView.css';
 
 const NewNoteView = () => {
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
-  const ArrayLengthTasks = useSelector(arrayLength);
+
 
   const SignupSchema = Yup.object().shape({
     title: Yup.string().required('Required').min(3, 'Too Short!').max(12,"Too Long"),
@@ -69,7 +69,7 @@ const NewNoteView = () => {
         console.log('Error getting document:', error);
       });
     dispatch(fetchNotesFirebase(note));
-    dispatch(incrementArrayLength(1));
+ 
   };
 
   return (

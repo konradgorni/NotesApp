@@ -46,12 +46,14 @@ const BoardView = () => {
         </div>
         <div className="wrapper">
           <h2>Important Notes</h2>
-          {importantListNotes? importantListNotes.map(note =>(
+          {importantListNotes.length !== 0 ? importantListNotes.map(note =>(
           <StyledNote key={note.id} onClick={()=>history.push(`/authpagehome/note/${note.id}`) }>
               <h2>{note.title}</h2>
               <p>{note.content}</p>
           </StyledNote>
-          )):null}
+          )):(       <StyledNote>
+              <h2>You don't have any import note</h2>
+            </StyledNote>)}
 
          
         

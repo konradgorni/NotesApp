@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { auth } from 'data/firebase/firebase';
 import { fireStoreFetch } from 'helpfulFunctions/fetchFirebaseData';
 import { setAuth, setID } from 'data/slices/userInfoSlice';
-import { fetchNotesFirebase, setArrayLength } from 'data/slices/notesSlice';
+import { fetchNotesFirebase } from 'data/slices/notesSlice';
 import HeaderText from 'components/atoms/Title';
 import { StyledField, ErrorMessage, StyledForm } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
