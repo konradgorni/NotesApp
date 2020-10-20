@@ -28,7 +28,7 @@ const NewNoteView = () => {
   const ArrayLengthTasks = useSelector(arrayLength);
 
   const SignupSchema = Yup.object().shape({
-    title: Yup.string().required('Required').min(3, 'Too Short!'),
+    title: Yup.string().required('Required').min(3, 'Too Short!').max(12,"Too Long"),
     content: Yup.string().min(5, 'Too Short!').required('Required'),
   });
   const userID = useSelector(user);
@@ -83,11 +83,17 @@ const NewNoteView = () => {
             important: false,
           }}
           validationSchema={SignupSchema}
-          onSubmit={({ title, content, important }, { setSubmitting, resetForm }) => {
-            addNewNote(title, content, important);
-            resetForm();
+          onSubmit={({ title, content, important },{ setSubmitting, resetForm }) => {
+           resetForm({
+            title: '',
+            content: '',
+            important: false,
+          });
+           addNewNote(title, content, important);
             setSubmitting(false);
+             
           }}
+          
         >
           {({ errors, touched }) => (
             <StyledForm>
@@ -108,10 +114,9 @@ const NewNoteView = () => {
                 onChange={(date) => setStartDate(date)}
               />
 
-              <label class="test" htmlFor="important">
+              <label className="test" htmlFor="important">
                 <Field id="important" type="checkbox" name="important" />
-                                <p class="checkbox">Important Note</p>
-
+                <p className="checkbox">Important Note</p>
               </label>
               <Button type="Submit" btn name="Add" />
               <ToastContainer />

@@ -86,7 +86,7 @@ export const StyledFieldContent = styled(Field)`
 
   @media ${device.mobileX} {
     width: 300px;
-    height: 70px;
+    height: 150px;
     font-size: 2.8rem;
     ::placeholder {
       font-size: 2.5rem;

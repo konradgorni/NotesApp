@@ -16,7 +16,7 @@ const NotesView = () => {
       <StyledContainer>
         {notes.map((note) => (
           <StyledNote onClick={() => history.push(`/authpagehome/note/${note.id}`)} key={note.id}>
-            {note.title}
+            {`${note.title.slice(0,15)}...`}
           </StyledNote>
         ))}
       </StyledContainer>
@@ -26,14 +26,3 @@ const NotesView = () => {
 };
 
 export default NotesView;
-
-//  const name = useSelector(showName);
-//  const tasks = useSelector((state) => state.tasks.zadania);
-
-//  const tasks = useSelector((state) => state);
-
-//  console.log(tasks);
-
-// return <div>{ {tasks.map((task) => (
-//       <p>{task}</p>
-//     ))} }</div>;
