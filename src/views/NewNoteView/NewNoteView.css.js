@@ -13,7 +13,7 @@ export const StyledWrapper = styled.div`
     color:white;
     font-size:2rem;
   }
-  .test{
+  .lab{
     display:flex;
     width:90%;
     justify-content:center;

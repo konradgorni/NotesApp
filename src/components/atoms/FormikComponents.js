@@ -57,6 +57,8 @@ export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
 `;
 
 /* notes styled components */
@@ -161,7 +163,7 @@ export const StyledFieldNote = styled(Field)`
 `;
 
 export const StyledPicker = styled(DatePicker)`
-  width: 450px;
+  width: 250px;
   height: 47px;
   text-align: center;
   background-color: ${({ theme }) => theme.purple};
@@ -177,3 +179,10 @@ export const StyledPicker = styled(DatePicker)`
     height: 70px;
   }
 `;
+
+export const MyContainer=styled.div`
+background-color:${({ theme }) => theme.purple};
+font-size:15px;
+padding:30px;
+
+`

@@ -10,6 +10,7 @@ import {
   StyledForm,
   StyledFieldContent,
   StyledPicker,
+  MyContainer
 } from 'components/atoms/FormikComponents';
 import Button from 'components/atoms/Button';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -22,9 +23,14 @@ import { fetchNotesFirebase } from 'data/slices/notesSlice';
 import Nav from 'components/organic/Nav/Nav';
 import { StyledWrapper } from './NewNoteView.css';
 
+
 const NewNoteView = () => {
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
+
+
+
+
 
 
   const SignupSchema = Yup.object().shape({
@@ -112,9 +118,12 @@ const NewNoteView = () => {
                 dateFormat="dd/MM/yyyy"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
+                calendarContainer={MyContainer}
+             
               />
+                 
 
-              <label className="test" htmlFor="important">
+              <label className="lab" htmlFor="important">
                 <Field id="important" type="checkbox" name="important" />
                 <p className="checkbox">Important Note</p>
               </label>
@@ -122,6 +131,8 @@ const NewNoteView = () => {
               <ToastContainer />
             </StyledForm>
           )}
+     
+
         </Formik>
         <Nav />
       </StyledWrapper>

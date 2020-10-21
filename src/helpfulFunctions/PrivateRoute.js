@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { isAuth } from 'data/slices/userInfoSlice';
 
 const PrivateRoute = ({ component: Component, path }) => {
-  // const Auth = useSelector((state) => state.userInfo.isAuth);
-  const Auth = true;
+  const Auth = useSelector((state) => state.userInfo.isAuth);
+
   return (
     <Route
       path={path}
