@@ -9,8 +9,9 @@ export const fireStoreFetch = async (idUser) => {
         
         return doc.data().notes;
       }
+      return null;
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log('Error getting document:', error);
     });
 };

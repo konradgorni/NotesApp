@@ -3,7 +3,6 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useParams,useHistory } from 'react-router-dom';
 import Button from 'components/atoms/Button';
 import { newArrayWithoutDeletedElement,notesList } from 'data/slices/notesSlice';
-import firebase from 'firebase';
 import { db } from 'data/firebase/firebase';
 import { user } from 'data/slices/userInfoSlice';
 import { StyledWrapper, ButtonsWrapper } from './SingleNote.css';

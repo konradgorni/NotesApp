@@ -161,7 +161,7 @@ export const StyledFieldNote = styled(Field)`
 `;
 
 export const StyledPicker = styled(DatePicker)`
-  width: 250px;
+  width: 450px;
   height: 47px;
   text-align: center;
   background-color: ${({ theme }) => theme.purple};

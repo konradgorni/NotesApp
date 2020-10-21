@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyledWrapper, StyledContainer, StyledNote } from './BoardView.css';
 import { HeaderWrapper } from 'components/atoms/HeaderWrapper';
-import Nav from 'components/organic/Nav/Nav.js';
+import Nav from 'components/organic/Nav/Nav';
 import { notesList } from 'data/slices/notesSlice';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { StyledWrapper, StyledContainer, StyledNote } from './BoardView.css';
 
 
 const BoardView = () => {
@@ -13,8 +13,8 @@ const BoardView = () => {
   const notes = useSelector(notesList);
   const history = useHistory();
 
-  const notesImportantChecker = (notes) => {
-    const result = notes.filter(({ important }) => important === true);
+  const notesImportantChecker = (list) => {
+    const result = list.filter(({ important }) => important === true);
     return result;
   };
 
@@ -51,9 +51,7 @@ const BoardView = () => {
               <h2>{note.title}</h2>
               <p>{note.content}</p>
           </StyledNote>
-          )):(       <StyledNote>
-              <h2>You don't have any import note</h2>
-            </StyledNote>)}
+          )) : (      <StyledNote><h2>You don't have any import note</h2></StyledNote> )}
 
          
         
